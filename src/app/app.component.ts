@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-          message: ['', [Validators.required, Validators.minLength(15)]],
+          message: ['', [Validators.required, Validators.minLength(15)]]
     });         
     this.loadResto();
   }
@@ -33,13 +33,19 @@ export class AppComponent implements OnInit {
   loadResto() {
     return this.restApi.getResto().subscribe((data: {}) => {
       this.Resto = data;
+      this.wordCounteronload();
     });
   }
 
   wordCounter() {
-    // alert(this.text.nativeElement.value)
-    // this.wordCount = this.text ? this.text.nativeElement.value.split(/\s+/) : 0;
-    this.wordCount = this.text ? this.text.nativeElement.value.split("/\s+/") : 0;
+    this.wordCount = this.text ? this.text.nativeElement.value.split(/[\w\d\’\'-]+/gi) : 0;
+    this.words = this.wordCount ? this.wordCount.length : 0;
+  }
+ 
+  wordCounteronload() {
+    
+    // this.wordCount = this.posttext ? this.posttext.nativeElement.value.split(/[\w\d\’\'-]+/gi) : 0;
+    this.wordCount = this.myForm.get('posttext') ? this.myForm.get('posttext').value.split(/[\w\d\’\'-]+/gi) : 0;
     this.words = this.wordCount ? this.wordCount.length : 0;
   }
 
