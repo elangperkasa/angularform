@@ -12,8 +12,59 @@
       <div  class="form-group p-1" >
             <label>
               Contents:</label>
-            <input type="text" class="form-control" formControlName="name">     
-          <!-- <button class="btn btn-primary btn-block" type="submit" [disabled]="myForm.invalid">Send</button> -->
+              <input type="text" class="form-control" formControlName="description" value="{{Resto.description}}">     
+           <!-- <button class="btn btn-primary btn-block" type="submit" [disabled]="myForm.invalid">Send</button>  -->
+      </div>
+      <div  class="form-group p-1" >
+        <label>
+          Url Description Contents:
+          </label><p></p>
+          <textarea [attr.disabled]="words >100 ? '' : null" (keydown)="wordCounter()" #text id="wmd-input" name="post-text" 
+            class="wmd-input s-input bar0 js-post-body-field processed" data-post-type-id="2" cols="92" rows="15" tabindex="101" data-min-length="" oncopy="return false;" onpaste="return false;" oncut="return false;">{{Resto.description}}
+          </textarea>
+            
+          <div>Words:<span id="wordCount">{{ words }}</span>
+          </div>
       </div>
     </form>
+</div>
+<div class="container custom-container-2">
+  <!-- Show it when there is no Data -->
+  <div class="no-data text-center" *ngIf="Resto.length == 0">
+    <p>There is no Data in Resto DB added yet!</p>
+  </div>
+  <!-- Resto data description list table -->
+  <!-- panjang resto = {{Resto.description}} -->
+  <div *ngIf="Resto.length !== 0">
+    <h3 class="mb-3 text-center">Rest List</h3>
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Resto ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">type</th>
+            <th scope="col">description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let resto of Resto"> -->
+            <tr > 
+            <td>{{ Resto.id }}</td>
+            <td>{{ Resto.name }}</td>
+            <td>{{ Resto.type }}</td>
+            <td>{{ Resto.description }}</td> -->
+            <td>
+              <!-- <span class="edit" routerLink="/employee-edit/{{ employee.id }}"
+                >Edit</span>
+              <span class="delete" (click)="deleteEmployee(employee.id)"
+                >Delete</span
+              > -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
