@@ -1,0 +1,17 @@
+
+
+textarea.ng-invalid {
+    background-color: pink;
+}
+textarea.ng-valid {
+    background-color: lightgreen;
+}
+textarea.ng-pristine {
+    background-color: white;
+}
+textarea.ng-untouched {
+    background-color: white;
+}
+.alertvalidation {
+    color: red;
+}
