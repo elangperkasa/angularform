@@ -13,7 +13,9 @@ export class AppComponent implements OnInit {
   wordCount: any;
   @ViewChild("text") text: ElementRef;
   words: any;
-  
+  myString : any;
+  myArray: any = [];
+
   @Input() restoDetails = { description: '' };
 
   constructor(public fb: FormBuilder, public restApi: RestApiService) {}
@@ -42,11 +44,12 @@ export class AppComponent implements OnInit {
     this.words = this.wordCount ? this.wordCount.length : 0;
   }
  
-  wordCounteronload() {
-    
-    // this.wordCount = this.posttext ? this.posttext.nativeElement.value.split(/[\w\d\’\'-]+/gi) : 0;
+  wordCounteronload() {    
     this.wordCount = this.Resto.description ? this.Resto.description.split(/[\w\d\’\'-]+/gi) : 0;
     this.words = this.wordCount ? this.wordCount.length : 0;
+    this.myString = this.Resto.description;
+    this.myArray = this.myString.split(' ');
+    console.log(this.myArray);
   }
 
 }
