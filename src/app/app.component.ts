@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   wordCounteronload() {
     
     // this.wordCount = this.posttext ? this.posttext.nativeElement.value.split(/[\w\d\’\'-]+/gi) : 0;
-    this.wordCount = this.myForm.get('posttext') ? this.myForm.get('posttext').value.split(/[\w\d\’\'-]+/gi) : 0;
+    this.wordCount = this.Resto.description ? this.Resto.description.split(/[\w\d\’\'-]+/gi) : 0;
     this.words = this.wordCount ? this.wordCount.length : 0;
   }
 
