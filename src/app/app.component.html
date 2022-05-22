@@ -23,9 +23,9 @@
           <!-- <textarea id="descresto"  [attr.disabled]="words >100 ? '' : null" (keydown)="wordCounter()" #text id="wmd-input" name="posttext" 
             class="wmd-input s-input bar0 js-post-body-field processed" data-post-type-id="2" cols="92" rows="15" tabindex="101" data-min-length="" oncopy="return false;" onpaste="return false;" oncut="return false;">{{Resto.description}}
           </textarea> -->
-          <span id="descresto">{{this.Resto.description}}</span>          
+          <span id="descresto">{{Resto.description}}</span>          
         </p>        
-          <div>Words count in description content :<span id="wordCount"> {{ words-1 }}</span>
+          <div>Words count in description content are :<span id="wordCount"> {{ words-1 }}</span> words
             
           </div>
       </div>

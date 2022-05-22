@@ -63,4 +63,6 @@ export class AppComponent implements OnInit {
     this.myArray = this.myString.split(' ');
     console.log(this.myArray);
   }
+
+  
 }
